@@ -1,4 +1,5 @@
-﻿#Sprint1 User' Information Defination
+
+#Sprint1 User' Information Defination
 2018-4-15  Linfeng Zhang
 
 -------------------
@@ -11,6 +12,7 @@
         UserRank:        Int
         RankMemberSize:  Int       
     }
+    
 ------
 ##2 Extend Information
     {
