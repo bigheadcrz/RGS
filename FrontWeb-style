@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+        td{
+            text-align:center;
+            width:100px;
+            height:30px;
+            border-style:solid;/*边框为实线*/
+        }
+        input{
+            width:98%;
+            height:98%;
+        }
+        .footer{
+   			position: relative;
+   			 left: 50%;
+        }
+        .sub-res{
+        	position:relative;
+        	right:100px;
+        	width:100px;
+            height:30px;
+        }
