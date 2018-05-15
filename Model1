@@ -1,0 +1,74 @@
+from docx import Document
+document = Document()
+
+# paragraph = document.add_paragraph("")
+'''
+#   样例1
+document.add_heading("张林峰", level=0)
+document.add_paragraph("TEL:138-4030-1165   MAIL:zhanglinfeng1997@outlook.com    GPA:4.1871/5    RANK:4/250")
+document.add_heading("获奖经历")
+document.add_paragraph("2015-2016，东北大学一等奖学金\n2015-2016，东北大学优秀学生称号\n2016东北大学程序设计竞赛一等奖")
+document.add_heading("项目经历")
+document.add_paragraph("1、2017-2018，GPU运算库加速\n对于东北大学自然语言处理实验室NiuTrans开源翻译系统进行CUDA显卡运算加速,在"
+                       "topk函数上取得了7.3倍的加速效果，超过了tensorflow3倍")
+document.add_paragraph("2、2017-2018，文本情感分类\n采用CNN,LSTM等模型搭建文本情感分类模型。在NLPCC2013年微博数据集上获得了"
+                       "70%以上的效果")
+document.add_heading("社会工作")
+document.add_paragraph("1、东北大学机器学习社团创始人、社长\n2、计算机1506班学习委员\n学生会新闻部部长")
+
+document.add_heading("专业技能")
+document.add_paragraph("CUDA并行程序开发，常用编程语言python,Java,C/C++/C#,可视化工具UWP,QT，常用深度学习框架Tensorflow,"
+                       "Pytorch等")
+'''
+
+
+def generate(nameString, telephone, mailAddress, GPA, RANK, honor, Projectexperience, SocialExperience,ProfessionalSkill):
+    document.add_heading(nameString, level=0)
+    briefIntrocution = "TEL:"+telephone+"   MAIL:"+mailAddress+"    GPA:"+GPA+"    RANK:"+RANK
+    document.add_paragraph(briefIntrocution)
+    document.add_heading("获奖经历")
+    honorSum = ""
+    for item in honor:
+        honorSum += item+"\n"
+    document.add_paragraph(honorSum)
+    document.add_heading("项目经历")
+    projSum = ""
+    for index, item in enumerate(Projectexperience):
+        projSum += str(index+1)+"、"+item + "\n"
+    document.add_paragraph(projSum)
+    document.add_heading("社会工作")
+    socialSum = ""
+    for index, item in enumerate(SocialExperience):
+        socialSum += str(index + 1) + "、" + item + "\n"
+    document.add_paragraph(socialSum)
+    skills = ""
+    document.add_heading("专业技能")
+    for index, item in enumerate(ProfessionalSkill):
+        skills += item + ","
+    document.add_paragraph(skills)
+
+generate("张林峰","138-4030-1165","zhanglinfeng1997@outlook.com","4.1871/5","4/250",["东北大学优秀学生","东北大学一等奖学金"],
+         ["2017-2018，GPU运算库加速\n对于东北大学自然语言处理实验室NiuTrans开源翻译系统进行CUDA显卡运算加速,在"
+                       "topk函数上取得了7.3倍的加速效果，超过了tensorflow3倍","2017-2018，文本情感分类\n采用CNN,LSTM等模"
+                                                             "型搭建文本情感分类模型。在NLPCC2013年微博数据集上获得了"
+                       "70%以上的效果"],["东北大学机器学习社团社长","计算机1506班学习委员"],["CUDA","python","Java","Tensorflow"])
+'''
+def generate(nameString, telephone, mailAddress, GPA, RANK, honor, Projectexperience, SocialExperience,ProfessionalSkill)
+nameString:姓名           string
+telephone:电话            string
+mailAddress:邮箱地址      string
+GPA：绩点                 string
+RANK:排名                 string
+honor：                   [string,string,string ....]
+Projectexperience         [string,string,string ....]
+SocialExperience          [string,string,string ....]
+ProfessionalSkill         [string,string,string ....]
+
+例如：
+generate("张林峰","138-4030-1165","zhanglinfeng1997@outlook.com","4.1871/5","4/250",["东北大学优秀学生","东北大学一等奖学金"],
+         ["2017-2018，GPU运算库加速\n对于东北大学自然语言处理实验室NiuTrans开源翻译系统进行CUDA显卡运算加速,在"
+                       "topk函数上取得了7.3倍的加速效果，超过了tensorflow3倍","2017-2018，文本情感分类\n采用CNN,LSTM等模"
+                                                             "型搭建文本情感分类模型。在NLPCC2013年微博数据集上获得了"
+                       "70%以上的效果"],["东北大学机器学习社团社长","计算机1506班学习委员"],["CUDA","python","Java","Tensorflow"])
+'''
+document.save('./document.doc')
